@@ -52,6 +52,9 @@ body {
     width: 90%;
     background-color: #9c9c9c;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
 #clear {
@@ -62,4 +65,12 @@ body {
     border-radius: 8px;
     border: 1px solid black;
     background-color: #D1D1D1;
+}
+
+.keypad {
+    border: 1px solid black;
+    width: 90%;
+    border-radius: 8px;
+    height: auto;
+    margin-bottom: 12px;
 }
