@@ -1,4 +1,4 @@
-const keypad = document.querySelector('.keypad');
+const leftKeypad = document.querySelector('.keypad');
 
 function createKeypad(){
     for (var i = 0; i<4; i++) {
