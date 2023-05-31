@@ -12,6 +12,17 @@ function createKeypad(){
         }
         leftKeypad.appendChild(row);
     }
+    const lastRow = document.createElement('div');
+    lastRow.classList.add('row');
+    lastRowElements = [0, '.'];
+    for (const i of lastRowElements) {
+        const key = document.createElement('button');
+        key.classList.add('key');
+        console.log("lastrowelement: " + i);
+        key.textContent = i;
+        lastRow.appendChild(key);
+    }
+    leftKeypad.appendChild(lastRow);
 }
 
 createKeypad();

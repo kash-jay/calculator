@@ -5,7 +5,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-top: 150px;
-    height: 500px;
+    height: 600px;
     width: 375px;
     border: 1px solid black;
     border-radius: 8px;
@@ -17,18 +17,18 @@ body {
 
 .display-container {
     background-color: #FFFFFF;
-    height: 22%;
+    height: 18%;
     width: 90%;
-    margin-top: 25px;
+    margin-top: 20px;
     border: 1px solid black;
     border-radius: 8px;
     margin-bottom: 20px;
 }
 
 .new-text{
-    margin-top: 25px;
+    margin-top: 10px;
     text-align: right;
-    margin-inline: 5px;
+    margin-inline: 8px;
     border: 1px solid black;
     font-size: 36px;
     color: black;
@@ -40,7 +40,7 @@ body {
     text-align: right;
     font-size: larger;
     font-size: 24px;
-    margin-inline: 5px;
+    margin-inline: 8px;
     margin-top: 5px;
 }
 
@@ -48,11 +48,10 @@ body {
     border: 1px solid red;
     border-radius: 8px;
     padding-inline: auto;
-    height: 63%;
+    height: 68%;
     width: 90%;
     background-color: #9c9c9c;
     display: flex;
-    justify-content: space-between;
 }
 
 .keypad {
@@ -77,13 +76,23 @@ body {
     border: 1px solid green;
 }
 
+.operators {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    padding-left: 0;
+    padding-top: 2px;
+}
+
 .left {
     padding: 8px;
 }
 
 #clear {
     text-align: center;
-    height: 60px;
+    height: 750px;
     margin-bottom: 12px;
     width: 235px;
     border-radius: 8px;
@@ -102,4 +111,8 @@ body {
     align-items: center;
     font-size: 36px;
     /* margin: 6px; */
+}
+
+#divide, #mult, #sub, #add, #equal {
+    margin-bottom: 6px;
 }
