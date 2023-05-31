@@ -1,4 +1,17 @@
+var currVal = 0;
+var prevVal = 0;
+var currText = "0";
+var prevText = "0";
+
+const upperDisplay = document.querySelector('.prev-text');
+const lowerDisplay = document.querySelector('.new-text');
+
 const leftKeypad = document.querySelector('.left');
+
+function updateDisplay() {
+    lowerDisplay.textContent = currText;
+    upperDisplay.textContent = prevText;
+}
 
 function createKeypad(){
     for (var i = 7; i>0; i = i - 3) {
@@ -18,6 +31,9 @@ function createKeypad(){
     for (const i of lastRowElements) {
         const key = document.createElement('button');
         key.classList.add('key'); 
+        var id = 'last-row-' + i;
+        key.setAttribute('id', id);
+
         key.textContent = i;
         lastRow.appendChild(key);
     }
@@ -25,3 +41,15 @@ function createKeypad(){
 }
 
 createKeypad();
+updateDisplay();
+
+const keys = document.querySelectorAll('.key');
+
+function keyClick(event) {
+    const key = event.target;
+    console.log(key.textContent);
+}
+
+keys.forEach((key) => {
+    key.addEventListener('click', keyClick); 
+});
