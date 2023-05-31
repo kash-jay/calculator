@@ -1,3 +1,6 @@
+body {
+    background-color: #F9F9F9;
+}
 .calc-container {
     margin-left: auto;
     margin-right: auto;
@@ -9,18 +12,37 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #d6d6d6;
 }
 
 .display-container {
+    background-color: #FFFFFF;
     height: 22%;
-    width: auto;
+    width: 85%;
     margin-top: 25px;
     border: 1px solid black;
-    /* padding: 30px; */
     margin-inline: px;
-    padding-inline: 160px;
     border-radius: 8px;
     margin-bottom: 20px;
+}
+
+.new-text{
+    margin-top: 25px;
+    text-align: right;
+    margin-inline: 5px;
+    border: 1px solid black;
+    font-size: 36px;
+    color: black;
+}
+
+.prev-text {
+    border: 1px solid black;
+    color: #333333;
+    text-align: right;
+    font-size: larger;
+    font-size: 24px;
+    margin-inline: 5px;
+    margin-top: 5px;
 }
 
 .keypad-container {
@@ -28,4 +50,5 @@
     border-radius: 8px;
     padding-inline: 160px;
     height: 63%;
+    background-color: #9c9c9c;
 }
