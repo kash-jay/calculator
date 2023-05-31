@@ -18,10 +18,9 @@ body {
 .display-container {
     background-color: #FFFFFF;
     height: 22%;
-    width: 85%;
+    width: 90%;
     margin-top: 25px;
     border: 1px solid black;
-    margin-inline: px;
     border-radius: 8px;
     margin-bottom: 20px;
 }
@@ -48,7 +47,19 @@ body {
 .keypad-container {
     border: 1px solid black;
     border-radius: 8px;
-    padding-inline: 160px;
+    padding-inline: auto;
     height: 63%;
+    width: 90%;
     background-color: #9c9c9c;
+    display: flex;
+}
+
+#clear {
+    text-align: center;
+    height: 30px;
+    margin: 12px;
+    width: 90%;
+    border-radius: 8px;
+    border: 1px solid black;
+    background-color: #D1D1D1;
 }
