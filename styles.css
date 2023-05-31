@@ -1,0 +1,31 @@
+.calc-container {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+    height: 500px;
+    width: 375px;
+    border: 1px solid black;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.display-container {
+    height: 22%;
+    width: auto;
+    margin-top: 25px;
+    border: 1px solid black;
+    /* padding: 30px; */
+    margin-inline: px;
+    padding-inline: 160px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.keypad-container {
+    border: 1px solid black;
+    border-radius: 8px;
+    padding-inline: 160px;
+    height: 63%;
+}
