@@ -22,7 +22,7 @@ body {
     border-radius: 8px;
     margin-bottom: 20px;
     min-height: 120px;
-    min-width: none;
+    max-width: 375px;
 }
 
 .new-text{
@@ -32,9 +32,12 @@ body {
     /* border: 1px solid black; */
     font-size: 42px;
     color: black;
+    max-width: 375px;
+    word-wrap: break-word;
 }
 
 .prev-text {
+    max-width: 375px;
     /* border: 1px solid black; */
     color: #333333;
     text-align: right;
@@ -42,6 +45,7 @@ body {
     font-size: 36px;
     margin-inline: 8px;
     margin-top: 5px;
+    word-wrap: break-word;
 }
 
 .keypad-container {
