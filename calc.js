@@ -155,3 +155,53 @@ keys.forEach((key) => {
     key.addEventListener('click', keyClick); 
 });
 
+document.addEventListener('keyup', function(event){
+    var keyPressed = event.key;
+    console.log("key: " + keyPressed +  " " + keyPressed.charCodeAt(0));
+    if (keyPressed.charCodeAt(0) > 47 && keyPressed.charCodeAt(0) < 58){
+        if (!operationFlag) {
+            clear();
+            operationFlag = true;
+        }
+        updateVals(keyPressed);
+        updateDisplay();
+    }
+    else if (keyPressed == '/') {
+        console.log("divide");
+        operator('div', '÷');
+    }
+    else if (keyPressed == '*') {
+        console.log("multitply");
+        operator('mult', '×');
+    }
+    else if (keyPressed == '+') {
+        console.log("add");
+        operator('add', keyPressed);
+    }
+    else if (keyPressed == '-') {
+        console.log("subtract");
+        operator('sub', keyPressed);
+    }
+    else if (keyPressed == '.') {
+        if (!operationFlag) {
+            clear();
+            operationFlag = true;
+        }
+        decimal = true;
+        updateVals(keyPressed);
+        updateDisplay();
+    }
+    else if (keyPressed == 'Enter') {
+        operationFlag = false;
+        decimal = false;
+        if (!calcObject[operation](prevVal, currVal)) {
+            return;
+        }
+        var result = calcObject[operation](prevVal, currVal);
+        prevText = currText;
+        prevVal = result;
+        currVal = result;
+        currText = ("" + result);
+        updateDisplay();
+    }
+});
