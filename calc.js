@@ -5,7 +5,7 @@ var prevText = "";
 var valText = "";
 var decimal = false;
 var result = 0;
-var operation = "";
+var operation = "none";
 var operationFlag = true;
 
 function removeTrailingZeros(str){
@@ -14,14 +14,21 @@ function removeTrailingZeros(str){
 }
 
 const calcObject = {
+    'none': (num1, num2) => false,
     'add': (num1, num2) => num1 + num2,
     'sub': (num1, num2) => num1 - num2,
     'mult': (num1, num2) => num1 * num2,
     'div': (num1, num2) => {
+        if (num2 == 0) {
+            clear();
+            prevText = "Division by zero!";
+            updateDisplay();
+            return; 
+        }
         var result = (num1 / num2).toFixed(13);
         var str = removeTrailingZeros(result);
-        return parseFloat(str);
-    }  
+        return str;
+    }
 }
 
 const upperDisplay = document.querySelector('.prev-text');
@@ -146,6 +153,9 @@ function keyClick(event) {
         console.log("operation: " + operation);
         console.log("prevVal: " + prevVal);
         console.log("currVal: " + currVal);
+        if (!calcObject[operation](prevVal, currVal)) {
+            return;
+        }
         var result = calcObject[operation](prevVal, currVal);
         console.log("result: " + result);
         prevText = currText;
