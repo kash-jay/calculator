@@ -120,11 +120,11 @@ function keyClick(event) {
     }
     else if (char == 61) {
         decimal = false;
-        var result = calcObject[operation](prevVal, currVal);
+        var result = calcObject[operation](prevVal, currVal).toFixed(13);
         prevText = currText;
         prevVal = result;
         currVal = result;
-        currText = "" + result;
+        currText = "" + result.replace(/\.?0*$/, '');
         updateDisplay();
     }
 }
