@@ -87,6 +87,23 @@ updateDisplay();
 
 const keys = document.querySelectorAll('.key');
 
+function updateVals(str) {
+    valText = valText + str;
+    currText = currText + str;
+    currVal = parseFloat(valText);
+    updateDisplay();
+}
+
+function operator(op, keyText) {
+    operationFlag = true;
+    decimal = false;
+    operation = op;
+    currText = currText + keyText;
+    updateDisplay();
+    prevVal = currVal;
+    valText = "";
+}
+
 function keyClick(event) {
     const key = event.target;
     var char = key.textContent.charCodeAt(0);
@@ -95,9 +112,7 @@ function keyClick(event) {
             clear();
             operationFlag = true;
         }
-        valText = valText + key.textContent;
-        currText = currText + key.textContent;
-        currVal = parseFloat(valText);
+        updateVals(key.textContent);
         updateDisplay();
     } 
     else if (char == 46 && !decimal) {    //decimal
@@ -106,46 +121,20 @@ function keyClick(event) {
             operationFlag = true;
         }
         decimal = true;
-        valText = valText + key.textContent;
-        currText = currText + key.textContent;
-        currVal = parseFloat(valText);
+        updateVals(key.textContent);
         updateDisplay();
     }
     else if (char == 247) { //division
-        operationFlag = true;
-        decimal = false;
-        operation = 'div';
-        currText = currText + key.textContent;
-        updateDisplay();
-        prevVal = currVal;
-        valText = "";
+        operator('div', key.textContent);
     }
     else if (char == 215) { //multiplication
-        operationFlag = true;
-        decimal = false;
-        operation = 'mult';
-        currText = currText + key.textContent;
-        updateDisplay();
-        prevVal = currVal;
-        valText = "";
+        operator('mult', key.textContent);
     }
     else if (char == 43) {  //addition
-        operationFlag = true;
-        decimal = false;
-        operation = 'add';
-        currText = currText + key.textContent;
-        updateDisplay();
-        prevVal = currVal;
-        valText = "";
+        operator('add', key.textContent);
     }
     else if (char == 8722) {    //subtraction
-        operationFlag = true;
-        decimal = false;
-        operation = 'sub';
-        currText = currText + key.textContent;
-        updateDisplay();
-        prevVal = currVal;
-        valText = "";
+        operator('sub', key.textContent);
     }
     else if (char == 61) {  //equals
         operationFlag = false;
