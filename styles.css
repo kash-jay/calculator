@@ -4,7 +4,7 @@ body {
 .calc-container {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 150px;
+    margin-top: 130px;
     border: 1px solid black;
     border-radius: 8px;
     display: flex;
@@ -125,4 +125,10 @@ body {
     width: 150px;
     margin-right: 3px;
     height: 65px;
+}
+
+.footer {
+    color: white;
+    text-align: center;
+    margin-top: 48px;
 }
