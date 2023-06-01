@@ -78,39 +78,52 @@ function keyClick(event) {
         console.log("currVal: " + currVal);
         updateDisplay();
     }
-    // else if (char == 247) { //division
-    //     operation = 'div';
-    //     currText = currText + key.textContent;
-    //     console.log("currText: " + currText);
-    //     updateDisplay();
-    //     prevVal = currVal;
-    // }
-    // else if (char == 215) {
-    //     operation = 'mult';
-    //     currText = currText + key.textContent;
-    //     console.log("currText: " + currText);
-    //     updateDisplay();
-
-    // }
-    else if (char == 43) {
-        operation = 'add';
+    else if (char == 247) { //division
+        operation = 'div';
         currText = currText + key.textContent;
         console.log("currText: " + currText);
+        console.log("prevVal: " + prevVal);
+        console.log("currVal: " + currVal);
         updateDisplay();
         prevVal = currVal;
         valText = "";
     }
-    // else if (char == 8722) {
-    //     operation = 'sub';
-    //     currText = currText + key.textContent;
-    //     console.log("currText: " + currText);
-    //     updateDisplay();
-
-    // }
+    else if (char == 215) {
+        operation = 'mult';
+        currText = currText + key.textContent;
+        console.log("currText: " + currText);
+        console.log("prevVal: " + prevVal);
+        console.log("currVal: " + currVal);
+        updateDisplay();
+        prevVal = currVal;
+        valText = "";
+    }
+    else if (char == 43) {
+        operation = 'add';
+        currText = currText + key.textContent;
+        console.log("currText: " + currText);
+        console.log("prevVal: " + prevVal);
+        console.log("currVal: " + currVal);
+        updateDisplay();
+        prevVal = currVal;
+        valText = "";
+    }
+    else if (char == 8722) {
+        operation = 'sub';
+        currText = currText + key.textContent;
+        console.log("currText: " + currText);
+        console.log("prevVal: " + prevVal);
+        console.log("currVal: " + currVal);
+        updateDisplay();
+        prevVal = currVal;
+        valText = "";
+    }
     else if (char == 61) {
+        decimal = false;
         var result = calcObject[operation](prevVal, currVal);
         prevText = currText;
         prevVal = result;
+        currVal = result;
         currText = "" + result;
         updateDisplay();
     }
