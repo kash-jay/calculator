@@ -37,7 +37,6 @@ const leftKeypad = document.querySelector('.left');
 const clearButton = document.getElementById('clear');
 
 function clear() {
-    console.log("clearing");
     currVal = 0;
     prevVal = 0;
     currText = "";
@@ -91,10 +90,10 @@ const keys = document.querySelectorAll('.key');
 function keyClick(event) {
     const key = event.target;
     var char = key.textContent.charCodeAt(0);
-    console.log(key.textContent);
     if (char>47 && char<58){    //all digits
         if (!operationFlag) {
             clear();
+            operationFlag = true;
         }
         valText = valText + key.textContent;
         currText = currText + key.textContent;
@@ -104,6 +103,7 @@ function keyClick(event) {
     else if (char == 46 && !decimal) {    //decimal
         if (!operationFlag) {
             clear();
+            operationFlag = true;
         }
         decimal = true;
         valText = valText + key.textContent;
@@ -150,14 +150,10 @@ function keyClick(event) {
     else if (char == 61) {  //equals
         operationFlag = false;
         decimal = false;
-        console.log("operation: " + operation);
-        console.log("prevVal: " + prevVal);
-        console.log("currVal: " + currVal);
         if (!calcObject[operation](prevVal, currVal)) {
             return;
         }
         var result = calcObject[operation](prevVal, currVal);
-        console.log("result: " + result);
         prevText = currText;
         prevVal = result;
         currVal = result;
