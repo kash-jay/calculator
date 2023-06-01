@@ -26,6 +26,22 @@ const calcObject = {
 const upperDisplay = document.querySelector('.prev-text');
 const lowerDisplay = document.querySelector('.new-text');
 const leftKeypad = document.querySelector('.left');
+const clearButton = document.getElementById('clear');
+
+function clear() {
+    console.log("clearing");
+    currVal = 0;
+    prevVal = 0;
+    currText = "";
+    prevText = "";
+    valText = "";
+    decimal = false;
+    result = 0;
+    operation = "";
+    updateDisplay();
+}
+
+clearButton.addEventListener('click', clear);
 
 function updateDisplay() {
     lowerDisplay.textContent = currText;
@@ -131,3 +147,4 @@ function keyClick(event) {
 keys.forEach((key) => {
     key.addEventListener('click', keyClick); 
 });
+
