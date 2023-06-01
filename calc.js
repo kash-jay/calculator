@@ -7,11 +7,20 @@ var decimal = false;
 var result = 0;
 var operation = "";
 
+function removeTrailingZeros(str){
+    const newStr = str.replace(/\.?0+$/, '');
+    return newStr.replace(/\.$/, '');
+}
+
 const calcObject = {
     'add': (num1, num2) => num1 + num2,
     'sub': (num1, num2) => num1 - num2,
     'mult': (num1, num2) => num1 * num2,
-    'div': (num1, num2) => num1 / num2,    
+    'div': (num1, num2) => {
+        var result = (num1 / num2).toFixed(13);
+        var str = removeTrailingZeros(result);
+        return parseFloat(str);
+    }  
 }
 
 const upperDisplay = document.querySelector('.prev-text');
@@ -62,69 +71,59 @@ function keyClick(event) {
     if (char>47 && char<58){    //all digits
         valText = valText + key.textContent;
         currText = currText + key.textContent;
-        console.log("currText: " + currText);
         currVal = parseFloat(valText);
-        console.log("prevVal: " + prevVal);
-        console.log("currVal: " + currVal);
         updateDisplay();
     } 
     else if (char == 46 && !decimal) {    //decimal
         decimal = true;
         valText = valText + key.textContent;
         currText = currText + key.textContent;
-        console.log("currText: " + currText);
         currVal = parseFloat(valText);
-        console.log("prevVal: " + prevVal);
-        console.log("currVal: " + currVal);
         updateDisplay();
     }
     else if (char == 247) { //division
+        decimal = false;
         operation = 'div';
         currText = currText + key.textContent;
-        console.log("currText: " + currText);
-        console.log("prevVal: " + prevVal);
-        console.log("currVal: " + currVal);
         updateDisplay();
         prevVal = currVal;
         valText = "";
     }
-    else if (char == 215) {
+    else if (char == 215) { //multiplication
+        decimal = false;
         operation = 'mult';
         currText = currText + key.textContent;
-        console.log("currText: " + currText);
-        console.log("prevVal: " + prevVal);
-        console.log("currVal: " + currVal);
         updateDisplay();
         prevVal = currVal;
         valText = "";
     }
-    else if (char == 43) {
+    else if (char == 43) {  //addition
+        decimal = false;
         operation = 'add';
         currText = currText + key.textContent;
-        console.log("currText: " + currText);
-        console.log("prevVal: " + prevVal);
-        console.log("currVal: " + currVal);
         updateDisplay();
         prevVal = currVal;
         valText = "";
     }
-    else if (char == 8722) {
+    else if (char == 8722) {    //subtraction
+        decimal = false;
         operation = 'sub';
         currText = currText + key.textContent;
-        console.log("currText: " + currText);
-        console.log("prevVal: " + prevVal);
-        console.log("currVal: " + currVal);
         updateDisplay();
         prevVal = currVal;
         valText = "";
     }
-    else if (char == 61) {
+    else if (char == 61) {  //equals
         decimal = false;
-        var result = calcObject[operation](prevVal, currVal).toFixed(13);
+        console.log("operation: " + operation);
+        console.log("prevVal: " + prevVal);
+        console.log("currVal: " + currVal);
+        var result = calcObject[operation](prevVal, currVal);
+        console.log("result: " + result);
         prevText = currText;
         prevVal = result;
         currVal = result;
-        currText = "" + result.replace(/\.?0*$/, '');
+        currText = ("" + result);
         updateDisplay();
     }
 }
