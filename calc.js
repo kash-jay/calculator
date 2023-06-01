@@ -6,6 +6,7 @@ var valText = "";
 var decimal = false;
 var result = 0;
 var operation = "";
+var operationFlag = true;
 
 function removeTrailingZeros(str){
     const newStr = str.replace(/\.?0+$/, '');
@@ -85,12 +86,18 @@ function keyClick(event) {
     var char = key.textContent.charCodeAt(0);
     console.log(key.textContent);
     if (char>47 && char<58){    //all digits
+        if (!operationFlag) {
+            clear();
+        }
         valText = valText + key.textContent;
         currText = currText + key.textContent;
         currVal = parseFloat(valText);
         updateDisplay();
     } 
     else if (char == 46 && !decimal) {    //decimal
+        if (!operationFlag) {
+            clear();
+        }
         decimal = true;
         valText = valText + key.textContent;
         currText = currText + key.textContent;
@@ -98,6 +105,7 @@ function keyClick(event) {
         updateDisplay();
     }
     else if (char == 247) { //division
+        operationFlag = true;
         decimal = false;
         operation = 'div';
         currText = currText + key.textContent;
@@ -106,6 +114,7 @@ function keyClick(event) {
         valText = "";
     }
     else if (char == 215) { //multiplication
+        operationFlag = true;
         decimal = false;
         operation = 'mult';
         currText = currText + key.textContent;
@@ -114,6 +123,7 @@ function keyClick(event) {
         valText = "";
     }
     else if (char == 43) {  //addition
+        operationFlag = true;
         decimal = false;
         operation = 'add';
         currText = currText + key.textContent;
@@ -122,6 +132,7 @@ function keyClick(event) {
         valText = "";
     }
     else if (char == 8722) {    //subtraction
+        operationFlag = true;
         decimal = false;
         operation = 'sub';
         currText = currText + key.textContent;
@@ -130,6 +141,7 @@ function keyClick(event) {
         valText = "";
     }
     else if (char == 61) {  //equals
+        operationFlag = false;
         decimal = false;
         console.log("operation: " + operation);
         console.log("prevVal: " + prevVal);
