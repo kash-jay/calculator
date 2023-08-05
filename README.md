@@ -4,9 +4,9 @@ A simple web-based calculator application built using HTML, CSS, and Vanilla Jav
 ## Features
 ```
 1. Responsive design
-1. Decimal handling
-1. Error handling
-1. Keyboard support
-1. Clear functionality
-1. Stylish design
+2. Decimal handling
+3. Error handling
+4. Keyboard support
+5. Clear functionality
+6. Stylish design
 ```
