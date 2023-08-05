@@ -11,7 +11,7 @@ A simple web-based calculator application built using HTML, CSS, and JavaScript,
 6. Stylish design
 ```
 ## Screenshot
-![image](https://github.com/kash-jay/calculator/assets/99241956/5d36588e-031b-40d6-ba3f-8cf5eca5dd5a)
+![image](https://github.com/kash-jay/calculator/assets/99241956/dd23d0eb-7945-45c1-ad04-31e1e9c24c76)
 ## Link
 https://kash-jay.github.io/calculator/
 
